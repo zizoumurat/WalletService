@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres
+  
+  identityserver:
+    image: identityserver
+    build:
+      context: ./backend/IdentityServer/WalletService.IdentityServer/
+      dockerfile: Dockerfile
+
+volumes:
+  identitydb_volume:

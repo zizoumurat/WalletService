@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  postgres:
+    container_name: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin!5
+      - POSTGRES_DB=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d postgres -h localhost -p 5432"]
+      interval: 35s
+      timeout: 35s
+      retries: 5
+
+  identityserver:
+    container_name: identityserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ConnectionStrings:DefaultConnection=Server=postgres;Port=5432;Database=identityDB;User Id=admin;Password=admin!5;
+    ports:
+      - "4003:80"
+    depends_on:
+      postgres:
+        condition: service_healthy

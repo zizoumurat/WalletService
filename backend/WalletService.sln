@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{D6A84F8D-75CE-4314-8C66-E92C4F1E1563}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WalletService.IdentityServer", "IdentityServer\WalletService.IdentityServer\WalletService.IdentityServer.csproj", "{311C6A64-BF8C-4732-B296-F7FAE073A46C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{ABADA1EA-E824-40D0-8443-992514EA5FDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{311C6A64-BF8C-4732-B296-F7FAE073A46C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311C6A64-BF8C-4732-B296-F7FAE073A46C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{311C6A64-BF8C-4732-B296-F7FAE073A46C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{311C6A64-BF8C-4732-B296-F7FAE073A46C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{311C6A64-BF8C-4732-B296-F7FAE073A46C} = {D6A84F8D-75CE-4314-8C66-E92C4F1E1563}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31070EBB-1319-4218-AF61-F0F292A8E100}
+	EndGlobalSection
+EndGlobal
