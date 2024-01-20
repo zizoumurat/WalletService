@@ -15,14 +15,68 @@ services:
       timeout: 35s
       retries: 5
 
-  identityserver:
-    container_name: identityserver
+  mongodb:
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  
+  identityserver.api:
+    container_name: identityserver.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - ConnectionStrings:DefaultConnection=Server=postgres;Port=5432;Database=identityDB;User Id=admin;Password=admin!5;
+      - ConnectionStrings:DefaultConnection=Server=postgres;Port=5432;Database=IdentityDB;User Id=admin;Password=admin!5;
+      - IssuerUri=http://identityserver.api
     ports:
-      - "4003:80"
+      - "5000:80"
     depends_on:
       postgres:
         condition: service_healthy
+
+  wallet.api:
+    container_name: wallet.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ConnectionStrings:DefaultConnection=Server=postgres;Port=5432;Database=WalletDB;User Id=admin;Password=admin!5;
+      - IdentityServerUrl=http://identityserver.api
+      - RabbitMQ:Host=rabbitmq
+      - RabbitMQ:Port=5672
+      - RabbitMQ:UserName=guest
+      - RabbitMQ:Password=guest
+      - RabbitMQ:VirtualHost=/
+    ports:
+      - "4001:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+  
+  transaction.api:
+    container_name: transaction.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - MongoDbSettings:ConnectionString=mongodb://mongodb:27017
+      - MongoDbSettings:DatabaseName=TransactionDb
+      - MongoDbSettings:CollectionName=Transactions
+      - IdentityServerUrl=http://identityserver.api
+      - RabbitMQ:Host=rabbitmq
+      - RabbitMQ:Port=5672
+      - RabbitMQ:UserName=guest
+      - RabbitMQ:Password=guest
+      - RabbitMQ:VirtualHost=/
+    ports:
+      - "4003:80"
+    depends_on:
+      - mongodb
+      - rabbitmq

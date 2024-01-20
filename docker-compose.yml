@@ -2,12 +2,31 @@ version: "3.8"
 services:
   postgres:
     image: postgres
+
+  mongodb:
+    image: mongo
   
-  identityserver:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+  
+  identityserver.api:
     image: identityserver
     build:
       context: ./backend/IdentityServer/WalletService.IdentityServer/
       dockerfile: Dockerfile
 
+  wallet.api:
+    image: walletapi
+    build:
+      context: ./backend/Services/
+      dockerfile: WalletApi/src/WalletApi.WebApi/Dockerfile
+
+  transaction.api:
+    image: transactionapi
+    build:
+      context: ./backend/Services/
+      dockerfile: TransactionApi/src/TransactionApi.WebApi/Dockerfile
+
 volumes:
   identitydb_volume:
+  mongo_data:

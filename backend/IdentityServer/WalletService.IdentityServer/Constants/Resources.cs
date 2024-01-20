@@ -2,8 +2,8 @@
 {
     public static class ResourcesNames
     {
-        public const string GateWay = "GateWay";
-        public const string WalletService = "WalletService";
-        public const string TransactionService = "TransactionService";
+        public const string GateWay = "Resource_GateWay";
+        public const string WalletService = "Resource_WalletService";
+        public const string TransactionService = "Resource_TransactionService";
     }
 }
