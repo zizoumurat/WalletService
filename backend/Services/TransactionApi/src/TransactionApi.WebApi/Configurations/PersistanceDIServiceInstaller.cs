@@ -1,8 +1,7 @@
-﻿using TransactionApi.Persistance.Context;
-using TransactionApi.Persistance.Context.Mongo;
-using TransactionApi.Persistance.Repositories.Abstract;
-using TransactionApi.Persistance.Repositories.Mongo;
+﻿using TransactionApi.Application.Contracts.Persistance.Repositories;
 using TransactionApi.Persistance;
+using TransactionApi.Persistance.Context.Mongo;
+using TransactionApi.Persistance.Repositories.Mongo;
 using TransactionApi.WebApi.OptionSetups;
 using WalletService.Common.Services;
 using WalletService.Common.Services.Abstract;

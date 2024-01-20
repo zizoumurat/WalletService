@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.Options;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
+using TransactionApi.Application.Contracts.Persistance.Repositories;
 using TransactionApi.Domain.Entities;
-using TransactionApi.Persistance.Options;
 using TransactionApi.Persistance.Context.Mongo;
-using TransactionApi.Persistance.Repositories.Abstract;
 
 namespace TransactionApi.Persistance.Repositories.Mongo;
 

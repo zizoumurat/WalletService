@@ -12,6 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\Core\TransactionApi.Application\TransactionApi.Application.csproj" />
 	  <ProjectReference Include="..\..\Core\TransactionApi.Domain\TransactionApi.Domain.csproj" />
 	</ItemGroup>
 

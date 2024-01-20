@@ -1,0 +1,152 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/{anything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "wallet.api",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/wallet/sw/{anything}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+            "UpstreamScheme": "http",
+            "SwaggerKey": "wallet",
+            "AddHeadersToRequest": {
+                "ContentType": "application/json"
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/wallet",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "wallet.api",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/wallet",
+            "UpstreamHttpMethod": [
+                "OPTIONS",
+                "GET",
+                "POST",
+                "DELETE"
+            ],
+            "AddHeadersToRequest": {
+                "ContentType": "application/json"
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/wallet/{anything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "wallet.api",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/wallet/{anything}",
+            "UpstreamHttpMethod": [
+                "OPTIONS",
+                "GET",
+                "POST",
+                "DELETE"
+            ],
+            "AddHeadersToRequest": {
+                "ContentType": "application/json"
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/{anything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "transaction.api",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/transaction/sw/{anything}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+            "UpstreamScheme": "http",
+            "SwaggerKey": "transaction.api"
+        },
+        {
+            "DownstreamPathTemplate": "/api/transaction",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "transaction.api",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/transaction",
+            "UpstreamHttpMethod": [
+                "OPTIONS",
+                "GET",
+                "POST",
+                "DELETE"
+            ],
+            "UpstreamScheme": "http",
+            "SwaggerKey": "transaction",
+            "AddHeadersToRequest": {
+                "ContentType": "application/json"
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/transaction/{anything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "transaction.api",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/transaction/{anything}",
+            "UpstreamHttpMethod": [
+                "OPTIONS",
+                "GET",
+                "POST",
+                "DELETE"
+            ],
+            "UpstreamScheme": "http",
+            "SwaggerKey": "transaction",
+            "AddHeadersToRequest": {
+                "ContentType": "application/json"
+            }
+        }
+    ],
+    
+    "GlobalConfiguration": {
+        "BaseUrl": "http://ocelot.api"
+    },
+    "SwaggerEndPoints": [
+        {
+            "Key": "transaction",
+            "TransformByOcelotConfig": false,
+            "Config": [
+                {
+                    "Name": "Transaction API",
+                    "Version": "v1",
+                    "Url": "http://ocelot.api/transaction/sw/swagger/v1/swagger.json"
+                }
+            ]
+        },
+        {
+            "Key": "wallet",
+            "TransformByOcelotConfig": false,
+            "Config": [
+                {
+                    "Name": "Wallet API",
+                    "Version": "v1",
+                    "Url": "http://ocelot.api/wallet/sw/swagger/v1/swagger.json"
+                }
+            ]
+        }
+    ]
+}

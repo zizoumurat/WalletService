@@ -1,6 +1,6 @@
 ﻿using TransactionApi.Domain.Entities;
 
-namespace TransactionApi.Persistance.Repositories.Abstract;
+namespace TransactionApi.Application.Contracts.Persistance.Repositories;
 
 public interface ITransactionRepository
 {

@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\External\TransactionApi.Persistance\TransactionApi.Persistance.csproj" />
     <ProjectReference Include="..\TransactionApi.Domain\TransactionApi.Domain.csproj" />
   </ItemGroup>
 

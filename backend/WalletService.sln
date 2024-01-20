@@ -55,7 +55,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransactionApi.Infrasturctu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransactionApi.Presentation", "Services\TransactionApi\src\External\TransactionApi.Presentation\TransactionApi.Presentation.csproj", "{AF341225-E64F-47F8-8D2E-48A63690D14E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionApi.WebApi", "Services\TransactionApi\src\TransactionApi.WebApi\TransactionApi.WebApi.csproj", "{91B9CCC9-00C3-432D-B0FC-43CCBECFB814}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransactionApi.WebApi", "Services\TransactionApi\src\TransactionApi.WebApi\TransactionApi.WebApi.csproj", "{91B9CCC9-00C3-432D-B0FC-43CCBECFB814}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GateWay", "GateWay", "{D27617FF-B6E2-4EA2-94CE-ED0D2D7BBF9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApi", "OcelotApi\OcelotApi.csproj", "{67A26EAF-926D-42E9-9B70-EF478974271F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,6 +123,10 @@ Global
 		{91B9CCC9-00C3-432D-B0FC-43CCBECFB814}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91B9CCC9-00C3-432D-B0FC-43CCBECFB814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91B9CCC9-00C3-432D-B0FC-43CCBECFB814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A26EAF-926D-42E9-9B70-EF478974271F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A26EAF-926D-42E9-9B70-EF478974271F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A26EAF-926D-42E9-9B70-EF478974271F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A26EAF-926D-42E9-9B70-EF478974271F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -149,6 +157,7 @@ Global
 		{63010603-D2D9-4ECD-BEFE-3480ABC5D869} = {25F3D7AE-6D3F-4061-B416-33D88B9ABB93}
 		{AF341225-E64F-47F8-8D2E-48A63690D14E} = {25F3D7AE-6D3F-4061-B416-33D88B9ABB93}
 		{91B9CCC9-00C3-432D-B0FC-43CCBECFB814} = {8837F9DA-44C1-46DD-9983-E945C1780186}
+		{67A26EAF-926D-42E9-9B70-EF478974271F} = {D27617FF-B6E2-4EA2-94CE-ED0D2D7BBF9A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31070EBB-1319-4218-AF61-F0F292A8E100}

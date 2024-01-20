@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using TransactionApi.Application.Contracts.Persistance.Repositories;
 using TransactionApi.Application.Dtos;
 using TransactionApi.Application.Services.Abstract;
 using TransactionApi.Domain.Entities;
-using TransactionApi.Persistance.Repositories.Abstract;
 
 namespace TransactionApi.Application.Services;
 
