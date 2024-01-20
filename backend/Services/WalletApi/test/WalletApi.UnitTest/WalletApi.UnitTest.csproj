@@ -25,7 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Services\TransactionApi\src\Core\TransactionApi.Application\TransactionApi.Application.csproj" />
+	  <ProjectReference Include="..\..\src\Core\WalletApi.Application\WalletApi.Application.csproj" />
 	</ItemGroup>
 
 </Project>

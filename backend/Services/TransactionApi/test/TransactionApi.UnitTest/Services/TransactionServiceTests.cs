@@ -4,7 +4,6 @@ using TransactionApi.Application.Dtos;
 using TransactionApi.Application.Services;
 using TransactionApi.Domain.Entities;
 using TransactionApi.UnitTest.Fixture;
-using TransactionApi.UnitTest.Mocks;
 
 namespace TransactionApi.UnitTest.Services;
 
