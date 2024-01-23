@@ -35,3 +35,4 @@ Para yatırma / çekme işlemleri ve hata durumunun yönetilmesi:
 Notlar:
 - kök dizinde "docker-compose up -d" çalıştırılması yeterlidir. Migration işlemi otomatik yapılacaktır.
 - monolitik yapıda UnitOfWork kullanımına örnek olması amacıyla WalletApi'ye UnitOfWork eklenmiştir.
+- para yatırma işleminde hata senaryousu için, tutarı 999 girmeniz yeterlidir.
