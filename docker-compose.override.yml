@@ -92,3 +92,12 @@ services:
       - transaction.api
     ports:
       - "6001:80"
+
+  web.client:
+    container_name: web.client
+    depends_on:
+      - wallet.api
+      - transaction.api
+      - ocelot.api
+    ports:
+      - "4200:80"

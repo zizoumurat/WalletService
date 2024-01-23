@@ -21,9 +21,12 @@ namespace TransactionApi.Presentation.Controllers;
             _identityService = identityService;
         }
 
-         [HttpGet("{walletId}")]
-        public async Task<IActionResult> GetAllTransaction(int walletId)
+         [HttpGet("{userId}/{walletId}")]
+        public async Task<IActionResult> GetAllTransaction(string userId,int walletId)
         {
+            if (userId != _identityService.GetUserId)
+                return StatusCode(403, "Yetkiniz Yok");
+
             var list = await _transactionService.GetByUserIdAsync(_identityService.GetUserId, walletId);
 
             return Ok(list);
