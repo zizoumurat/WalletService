@@ -16,7 +16,9 @@ public class UnitOfWork : IUnitOfWork
 
     public IDbContextTransaction BeginTransaction()
     {
-        return _dbContext.Database.BeginTransaction();
+        _transaction = _dbContext.Database.BeginTransaction();
+
+        return _transaction;
     }
 
     public async Task CommitAsync()

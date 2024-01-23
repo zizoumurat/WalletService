@@ -80,3 +80,15 @@ services:
     depends_on:
       - mongodb
       - rabbitmq
+  
+  ocelot.api:
+    container_name: ocelot.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - IdentityServerUrl=http://identityserver.api
+    depends_on:
+      - wallet.api
+      - transaction.api
+    ports:
+      - "6001:80"

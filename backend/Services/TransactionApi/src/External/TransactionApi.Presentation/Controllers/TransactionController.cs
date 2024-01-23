@@ -30,19 +30,19 @@ namespace TransactionApi.Presentation.Controllers;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTransaction(TransactionDto transaction)
+        public async Task<IActionResult> CreateTransaction(TransactionCreateDto transaction)
         {
 
             if (transaction.UserId != _identityService.GetUserId)
                 return StatusCode(403, "Yetkiniz Yok");
 
-            transaction = await _transactionService.AddAsync(transaction);
+            var addedTransaction = await _transactionService.AddAsync(transaction);
 
             await _queueService.SendCreateTransactionEvent(new WalletService.Common.Messages.CreateTransactionCommand
             {
-                Amount = transaction.Amount,
-                TransactionId = transaction.Id,
-                WalletId = transaction.WalletId,
+                Amount = addedTransaction.Amount,
+                TransactionId = addedTransaction.Id,
+                WalletId = addedTransaction.WalletId,
                 UserId = _identityService.GetUserId
             });
 

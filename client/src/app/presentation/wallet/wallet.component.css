@@ -1,0 +1,34 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 16px;
+}
+
+.mat-card {
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.mat-card .label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    line-height: 1em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 500;
+}
+
+.card-header {
+    background-color: #ff73a3;
+}
+
+.card-header .mat-card-content .user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-header .mat-card-content .user-list-header h2 {
+    margin: 0;
+}

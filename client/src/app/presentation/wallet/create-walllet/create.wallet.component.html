@@ -1,0 +1,39 @@
+<div>
+    <div class="add-title">
+      <h2 class="primary">Cüzdan Ekle</h2>
+    </div>
+    <div>
+      <form [formGroup]="form" (change)="formChanged()" *ngIf="form">
+        <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field>
+                <input matInput placeholder="Adı" formControlName="name" required>
+                <mat-error *ngIf="form.controls.name.hasError('required')">
+                    Bu Alan Zorunludur
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field>
+                <mat-label>Para Birimi</mat-label>
+                <mat-select *ngIf="CurrencyEnum" formControlName="walletCurrency">
+                  <mat-option *ngFor="let currency of currencies" [value]="currency">
+                    {{ getEnumText(currency) }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <div class="btn-sec">
+          <button mat-raised-button type="button" color="warn" class="margin-1"  [mat-dialog-close]="true">İptal</button>
+          <button mat-raised-button type="submit" color="primary"  (click)="save()">Kaydet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

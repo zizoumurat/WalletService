@@ -41,7 +41,6 @@ namespace WalletApi.Presentation.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateWallet(CreateWalletCommand request)
         {
-
             if (request.userId != _identityService.GetUserId)
                 return StatusCode(403, "Yetkiniz Yok");
 

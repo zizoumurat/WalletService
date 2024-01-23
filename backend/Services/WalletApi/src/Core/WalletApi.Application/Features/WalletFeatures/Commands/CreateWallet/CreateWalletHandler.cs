@@ -42,10 +42,9 @@ public class CreateWalletHandler : ICommandHandler<CreateWalletCommand, CreateWa
 
                 return new();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 await _unitOfWork.RollbackAsync();
-
                 throw;
             }
         }

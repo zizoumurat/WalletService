@@ -27,6 +27,6 @@ public class TransactionComplatedConsumer : IConsumer<CreateTransactionComplated
 
         await _transactionService.UpdateAsync(transaction);
 
-        await _hubContext.Clients.User(context.Message.userId).SendAsync("ReceiveNotification", new { Status = true, Message = ResponseMessages.TransactionComplated});
+        await _hubContext.Clients.All.SendAsync("ReceiveNotification", new { Status = true, Message = ResponseMessages.TransactionComplated, UserId = context.Message.userId});
     }
 }

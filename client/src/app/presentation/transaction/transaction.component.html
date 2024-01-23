@@ -1,0 +1,52 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+        <mat-card class="card-header">
+            <mat-card-content>
+                <div class="user-list-header">
+                    <h2>Hesap Hareketleri</h2>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <div class="card-container">
+          <div class="my-20">
+            <mat-label class="wallet-label">Cüzdan Seçimi</mat-label>
+            <mat-select class="wallet-select"  [(ngModel)]="selectedWallet" (ngModelChange)="onWalletChange()">
+              <mat-option *ngFor="let wallet of wallets" [value]="wallet">
+                {{ wallet.name }}
+              </mat-option>
+            </mat-select>
+          </div>
+            <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> Ref. Id </th>
+                  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef> Tarih </th>
+                  <td mat-cell *matCellDef="let element"> {{element.date | date:'dd/MM/yyyy HH:mm'}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="type">
+                  <th mat-header-cell *matHeaderCellDef> İşleri Türü </th>
+                  <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                  <th mat-header-cell *matHeaderCellDef> Tutar </th>
+                  <td mat-cell *matCellDef="let element"> {{element.amount }} {{selectedWallet.currencyName}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> Durum </th>
+                  <td mat-cell *matCellDef="let element"> {{element.status }} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              
+              
+        </div>
+    </div>
+</div>

@@ -37,6 +37,10 @@
             ],
             "AddHeadersToRequest": {
                 "ContentType": "application/json"
+            },
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "GatewayAuthenticationScheme",
+                "AllowedScopes": []
             }
         },
         {
@@ -57,9 +61,12 @@
             ],
             "AddHeadersToRequest": {
                 "ContentType": "application/json"
+            },
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "GatewayAuthenticationScheme",
+                "AllowedScopes": []
             }
         },
-
         {
             "DownstreamPathTemplate": "/{anything}",
             "DownstreamScheme": "http",
@@ -96,6 +103,10 @@
             "SwaggerKey": "transaction",
             "AddHeadersToRequest": {
                 "ContentType": "application/json"
+            },
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "GatewayAuthenticationScheme",
+                "AllowedScopes": []
             }
         },
         {
@@ -118,10 +129,13 @@
             "SwaggerKey": "transaction",
             "AddHeadersToRequest": {
                 "ContentType": "application/json"
+            },
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "GatewayAuthenticationScheme",
+                "AllowedScopes": []
             }
         }
     ],
-    
     "GlobalConfiguration": {
         "BaseUrl": "http://ocelot.api"
     },

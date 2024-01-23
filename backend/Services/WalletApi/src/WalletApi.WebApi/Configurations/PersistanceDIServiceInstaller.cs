@@ -1,5 +1,6 @@
 ﻿using WalletApi.Application.Contracts.Persistance.Repositories;
 using WalletApi.Persistance.Repositories;
+using WalletApi.Persistance.UnitOfWork;
 using WalletService.Common.Services;
 using WalletService.Common.Services.Abstract;
 
@@ -10,6 +11,7 @@ public class PersistanceDIServiceInstaller : IServiceInstaller
     public void Install(IServiceCollection services, IConfiguration configuration)
     {
         #region UnitOfWork
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         #endregion
 
         #region Repositories

@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WalletService.IdentityServer.Services;
 
 namespace WalletService.IdentityServer
 {
@@ -28,6 +29,19 @@ namespace WalletService.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+             services.AddLocalApiAuthentication();
+             
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
+
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -54,6 +68,9 @@ namespace WalletService.IdentityServer
                 .AddInMemoryClients(Config.Clients)
                 .AddAspNetIdentity<ApplicationUser>();
 
+
+            builder.AddResourceOwnerValidator<IdentityResourceOwnerPasswordValidator>();
+            builder.AddExtensionGrantValidator<TokenExchangeExtensionGrantValidator>();
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
@@ -67,6 +84,8 @@ namespace WalletService.IdentityServer
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }
+
+            app.UseCors();
 
             app.UseStaticFiles();
 

@@ -16,7 +16,7 @@ public class TransactionService : ITransactionService
         _transactionRepository = transactionRepository;
         _mapper = mapper;
     }
-    public async Task<TransactionDto> AddAsync(TransactionDto transaction)
+    public async Task<TransactionDto> AddAsync(TransactionCreateDto transaction)
     {
         var transactionEntity = _mapper.Map<Transaction>(transaction);
         transactionEntity.Status = Domain.Enums.TransactionStatus.Pending;
@@ -34,9 +34,9 @@ public class TransactionService : ITransactionService
         return _mapper.Map<TransactionDto>(transactionEntity);
     }
 
-    public async Task<IEnumerable<TransactionDto>> GetByUserIdAsync(string userId)
+    public async Task<IEnumerable<TransactionDto>> GetByUserIdAsync(string userId, int walletId)
     {
-        var transactionList = await _transactionRepository.GetAllByUserId(userId);
+        var transactionList = await _transactionRepository.GetAllByUserId(userId, walletId);
 
         return _mapper.Map<List<TransactionDto>>(transactionList);
     }

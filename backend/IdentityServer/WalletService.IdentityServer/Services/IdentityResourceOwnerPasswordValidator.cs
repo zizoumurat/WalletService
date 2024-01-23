@@ -18,7 +18,7 @@ namespace WalletService.IdentityServer.Services
 
         public async Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
-            var existUser = await _userManager.FindByEmailAsync(context.UserName);
+            var existUser = await _userManager.FindByNameAsync(context.UserName);
 
             if (existUser == null)
             {

@@ -21,9 +21,9 @@ public class TransactionRepository : ITransactionRepository
         await _transactionCollection.InsertOneAsync(transaction);
     }
 
-    public async Task<IEnumerable<Transaction>> GetAllByUserId(string userId)
+    public async Task<IEnumerable<Transaction>> GetAllByUserId(string userId, int walletId)
     {
-        return await _transactionCollection.Find(t => t.UserId == userId).ToListAsync();
+        return await _transactionCollection.Find(t => t.UserId == userId && t.walletId == walletId).ToListAsync();
     }
 
     public async Task<Transaction> GetByIdAsync(string id)

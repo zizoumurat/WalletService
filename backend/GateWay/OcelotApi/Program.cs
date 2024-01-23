@@ -1,5 +1,6 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("ocelot.json");
@@ -21,6 +22,14 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication()
+                        .AddJwtBearer("GatewayAuthenticationScheme", options =>
+                        {
+                            options.Authority = builder.Configuration["IdentityServerURL"];
+                            options.Audience = "Resource_GateWay";
+                            options.RequireHttpsMetadata = false;
+                        });
 
 
 var app = builder.Build();

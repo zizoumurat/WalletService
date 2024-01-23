@@ -1,0 +1,46 @@
+<div>
+  <div>
+    <h2 class="title">Para Yatır</h2>
+  </div>
+  <div *ngIf="!processing">
+    <div class="flex">
+      <div class="flex-content">
+        <div class="info-row">
+          <span class="label">Hesap Adı</span>
+          <span>{{selectedWallet.name}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Mevcut Bakiye</span>
+          <span>{{selectedWallet.currencyName}} {{selectedWallet.balance}}</span>
+        </div>
+      </div>
+      <div class="flex-content">
+        <form [formGroup]="form" (change)="formChanged()" *ngIf="form">
+
+          <div class="text-inside">
+            <mat-form-field>
+              <input type="number" matInput placeholder="Çekmek İstediğiniz Tutar" formControlName="amount">
+              <mat-error *ngIf="form.controls.amount.hasError('required')">
+                Bu Alan Zorunludur
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="btn-sec">
+            <button mat-raised-button type="button" color="warn" class="margin-1"
+              [mat-dialog-close]="true">İptal</button>
+            <button mat-raised-button type="submit" color="primary" (click)="save()">Para Çek</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="processing">
+    <div class="my-40">
+      <h4>İşleminiz devam ediyor...</h4>
+      <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </div>
+  </div>
+</div>

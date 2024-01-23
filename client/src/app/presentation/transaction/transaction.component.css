@@ -1,0 +1,49 @@
+.mat-card {
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.mat-card .label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    line-height: 1em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 500;
+}
+
+.card-header {
+    background-color: #ff73a3;
+}
+
+.card-header .mat-card-content .user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header .mat-card-content .user-list-header h2 {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+}
+
+.my-20 {
+    margin: 20px 0;
+}
+
+.wallet-label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.wallet-select {
+    background-color: #fff;
+    width:250px;
+    padding:10px;
+}

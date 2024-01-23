@@ -25,6 +25,6 @@ public class TransactionFailedConsumer : IConsumer<CreateTransactionFailedComman
         transaction.Status = TransactionStatus.Failed;
 
         await _transactionService.UpdateAsync(transaction);
-        await _hubContext.Clients.User(context.Message.userId).SendAsync("ReceiveNotification", new { Status = false, Message = ErrorMessages.SomethingWentWrong, ErrorMessage = context.Message.errorMessage });
+        await _hubContext.Clients.All.SendAsync("ReceiveNotification", new { Status = false, Message = ErrorMessages.SomethingWentWrong, ErrorMessage = context.Message.errorMessage, UserId = context.Message.userId });
     }
 }

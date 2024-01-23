@@ -1,0 +1,27 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+        <mat-card class="card-header">
+            <mat-card-content>
+                <div class="user-list-header">
+                    <h2>Cüzdanlarım</h2>
+                    <div>
+                        <button mat-raised-button color="primary" (click)="openCreateWalletDialog()">Yeni CÜzdan Ekle</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <div class="card-container">
+
+            <mat-card *ngFor="let card of cards; let i = index" [style.background-color]="getCardColor(i)">
+                <mat-card-content>
+                    <span class="label">{{card.name}}</span>
+                    <p>{{ card.currencyName }} {{ card.balance }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button [disabled]="card.balance === 0" mat-raised-button color="primary" (click)="openWithdrawDialog(card)">Para Çek</button>
+                    <button mat-raised-button color="accent" (click)="openDepositDialog(card)">Para Yatır</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

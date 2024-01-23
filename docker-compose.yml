@@ -27,6 +27,12 @@ services:
       context: ./backend/Services/
       dockerfile: TransactionApi/src/TransactionApi.WebApi/Dockerfile
 
+  ocelot.api:
+    image: ocelotapi
+    build:
+      context: ./backend/GateWay/
+      dockerfile: OcelotApi/Dockerfile  
+
 volumes:
   identitydb_volume:
   mongo_data:

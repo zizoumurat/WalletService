@@ -48,6 +48,7 @@ namespace WalletService.IdentityServer
                 {
                     ClientName="WalletService.Client",
                     ClientId="webClientUser",
+                    AllowOfflineAccess = true,
                     ClientSecrets={new Secret("mySecret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     AllowedScopes={
@@ -57,7 +58,8 @@ namespace WalletService.IdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Profile,
-                        IdentityServerConstants.LocalApi.ScopeName
+                        IdentityServerConstants.LocalApi.ScopeName,
+                        IdentityServerConstants.StandardScopes.OfflineAccess
                     },
                     AccessTokenLifetime=1*60*60,
                     RefreshTokenExpiration=TokenExpiration.Absolute,

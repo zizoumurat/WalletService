@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.progress-bar-container {
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+}
+
+.mat-card {
+  margin-top:100px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
