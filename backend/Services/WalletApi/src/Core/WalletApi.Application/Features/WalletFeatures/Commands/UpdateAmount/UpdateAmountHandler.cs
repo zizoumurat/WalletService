@@ -22,7 +22,7 @@ public class UpdateAmountHandler : ICommandHandler<UpdateAmountCommand, UpdateAm
         if (wallet == null)
             throw new Exception(ErrorMessages.WalletNotFound);
 
-        if (request.amount < 0 && wallet.Balance < request.amount)
+        if (request.amount < 0 && wallet.Balance < (request.amount * -1))
             throw new Exception(ErrorMessages.InsufficientBalance);
 
         wallet.Balance += request.amount;

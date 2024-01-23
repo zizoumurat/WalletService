@@ -48,6 +48,9 @@ export class WithdrawComponent implements OnInit {
 
         const [walletId, amount] = [this.selectedWallet?.id, this.form.get('amount')?.value];
 
+	if(amount > this.selectedWallet.balance)
+	   return;
+
         this.transactionService.withdraw(walletId, amount)
             .subscribe((_) => {
             });
