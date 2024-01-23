@@ -17,7 +17,7 @@ export class TransactionRepository extends ITransactionRepository {
     }
 
     override getList(walletId: number, userId: string): Observable<TransactionListModel[]> {
-        return this.api.get<TransactionModel[]>(`${endPoint}/${userId}/${walletId}`, httpParams).pipe(
+        return this.api.get<TransactionModel[]>(`${endPoint}/${userId}/${walletId}`).pipe(
             map(transactions => transactions.map(transaction => ({
                 id: transaction.id,
                 amount: transaction.amount,
@@ -29,7 +29,6 @@ export class TransactionRepository extends ITransactionRepository {
     }
 
     private getStatus(value: number) {
-        console.log(value);
         return value === 1 ? 'Bekliyor' : (value === 2 ? 'Başarılı' : 'Hatalı');
     }
     
