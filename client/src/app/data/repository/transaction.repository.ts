@@ -17,11 +17,7 @@ export class TransactionRepository extends ITransactionRepository {
     }
 
     override getList(walletId: number, userId: string): Observable<TransactionListModel[]> {
-        const httpParams = new HttpParams()
-            .set('userId', userId)
-            .set('walletId', walletId)
-
-        return this.api.get<TransactionModel[]>(`${endPoint}`, httpParams).pipe(
+        return this.api.get<TransactionModel[]>(`${endPoint}/${userId}/${walletId}`, httpParams).pipe(
             map(transactions => transactions.map(transaction => ({
                 id: transaction.id,
                 amount: transaction.amount,

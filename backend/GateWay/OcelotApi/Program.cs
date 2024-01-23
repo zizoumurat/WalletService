@@ -11,9 +11,9 @@ builder.Services.AddSwaggerForOcelot(builder.Configuration);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
+    options.AddPolicy("AllowSpecificOrigins",
         builder => builder
-            .AllowAnyOrigin()
+            .WithOrigins("http://localhost:4002")
             .AllowAnyHeader()
             .AllowAnyMethod()
     );
@@ -43,6 +43,6 @@ if (app.Environment.IsDevelopment())
 }
 app.UseSwaggerForOcelotUI().UseOcelot().Wait();
 app.UseDeveloperExceptionPage();
-app.UseCors("AllowAllOrigins");
+app.UseCors("AllowSpecificOrigins");
 app.MapControllers();
 app.Run();
