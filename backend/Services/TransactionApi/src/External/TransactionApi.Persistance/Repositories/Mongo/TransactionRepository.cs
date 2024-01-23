@@ -23,7 +23,7 @@ public class TransactionRepository : ITransactionRepository
 
     public async Task<IEnumerable<Transaction>> GetAllByUserId(string userId, int walletId)
     {
-        return await _transactionCollection.Find(t => t.UserId == userId && t.walletId == walletId).ToListAsync();
+        return await _transactionCollection.Find(t => t.UserId == userId && t.WalletId == walletId).ToListAsync();
     }
 
     public async Task<Transaction> GetByIdAsync(string id)

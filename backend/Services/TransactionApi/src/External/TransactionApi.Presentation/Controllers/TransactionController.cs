@@ -21,10 +21,10 @@ namespace TransactionApi.Presentation.Controllers;
             _identityService = identityService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllTransaction()
+         [HttpGet("{walletId}")]
+        public async Task<IActionResult> GetAllTransaction(int walletId)
         {
-            var list = await _transactionService.GetByUserIdAsync(_identityService.GetUserId);
+            var list = await _transactionService.GetByUserIdAsync(_identityService.GetUserId, walletId);
 
             return Ok(list);
         }
